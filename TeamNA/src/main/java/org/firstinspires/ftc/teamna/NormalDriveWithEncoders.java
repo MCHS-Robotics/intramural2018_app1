@@ -59,6 +59,7 @@ public class NormalDriveWithEncoders implements MovementStrategy {
         }
         left.setPower(0);
         right.setPower(0);
+        telemetry.update();
         left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
