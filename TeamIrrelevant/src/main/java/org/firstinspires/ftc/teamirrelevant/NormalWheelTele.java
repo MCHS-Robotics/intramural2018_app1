@@ -57,11 +57,11 @@ public class NormalWheelTele extends LinearOpMode {
                arm.openHand();
            else if(gamepad1.b)
                arm.closeHand();
-           if(gamepad1.leftBumper)
+           if(gamepad1.left_bumper)
                arm.moveWristUp(.001f);
-           else if(gamepad1.rightBumper)
+           else if(gamepad1.right_bumper)
                arm.moveWristDown(.001f);
-           arm.setElbowPower(gamepad1.leftTrigger()-gamepad1.rightTrigger());
+           arm.setElbowPower(gamepad1.right_trigger * gamepad1.right_trigger-gamepad1.left_trigger * gamepad1.left_trigger);
            arm.checkElbow();
            /*Body End*/
         idle();
