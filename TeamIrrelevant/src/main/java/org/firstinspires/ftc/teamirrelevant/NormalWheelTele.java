@@ -39,17 +39,30 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @Disabled
 public class NormalWheelTele extends LinearOpMode {
 
+    NormalDrive robot;
+    Arm arm;
     @Override
     public void runOpMode() {
         /*Init Start*/
-
+            robot = new NormalDrive(hardwareMap);
+            arm = new Arm(hardwareMap);
         /*Init End*/
         telemetry.addData("setup","initialized");
         telemetry.update();
         waitForStart();
         while(opModeIsActive()){
            /*Body Start*/
-
+           robot.run(gamepad1,gamepad2);
+           if(gamepad1.a)
+               arm.openHand();
+           else if(gamepad1.b)
+               arm.closeHand();
+           if(gamepad1.leftBumper)
+               arm.moveWristUp(.001f);
+           else if(gamepad1.rightBumper)
+               arm.moveWristDown(.001f);
+           arm.setElbowPower(gamepad1.leftTrigger()-gamepad1.rightTrigger());
+           arm.checkElbow();
            /*Body End*/
         idle();
         }
