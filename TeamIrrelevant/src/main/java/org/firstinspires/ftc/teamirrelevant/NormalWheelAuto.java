@@ -50,9 +50,7 @@ public class NormalWheelAuto extends LinearOpMode {
         color = new ColorSense(hardwareMap,"light");
         waitForStart();
         /*Code Start*/
-            robot.forward(1);
-            robot.cClockwise(90);
-            robot.forward(1);
+            robot.forward(12*12-1/*Robot len/2 */);
             color.on();
             color.isRed();
             color.off();
