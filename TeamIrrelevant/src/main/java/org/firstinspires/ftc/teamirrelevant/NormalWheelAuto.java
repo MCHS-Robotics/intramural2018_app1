@@ -29,19 +29,37 @@
 
 package org.firstinspires.ftc.teamirrelevant;
 
+import android.graphics.Color;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 
 
 @Autonomous(name="Autonomous", group="Autonomous")
 @Disabled
 public class NormalWheelAuto extends LinearOpMode {
+    NormalDrive robot;
+    Arm arm;
+    ColorSense color;
     @Override
     public void runOpMode() {
+        robot = new NormalDrive(hardwareMap);
+        arm = new Arm(hardwareMap);
+        color = new ColorSense(hardwareMap,"light");
         waitForStart();
         /*Code Start*/
-        
+            robot.forward(1);
+            robot.cClockwise(90);
+            robot.forward(1);
+            color.on();
+            color.isRed();
+            color.off();
+            arm.runElbowTo(0,.1f);
+            arm.moveWristDown(.2f);
+            arm.openHand();
+
         /*Code End*/
         }
 }

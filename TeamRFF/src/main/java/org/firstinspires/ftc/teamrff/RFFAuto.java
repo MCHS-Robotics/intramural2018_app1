@@ -75,7 +75,7 @@ public class RFFAuto extends LinearOpMode {
     protected Servo jewel = null;
     protected ColorSensor colorSensor = null;
 
-    protected MovementStrategy move;
+   // protected MovementStrategy move;
 
     public static final String TAG = "Vuforia VuMark Sample";
 
@@ -99,7 +99,7 @@ public class RFFAuto extends LinearOpMode {
         left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        move = new NormalDriveEncoders(right, left, telemetry, 0.15f);
+        //move = new NormalDriveEncoders(right, left, telemetry, 0.15f);
 //        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
 //        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(cameraMonitorViewId);
 //        parameters.vuforiaLicenseKey = "AWrTLxn/////AAAAGR6wTueSh0e5nXohk/1mFhhxlpeNrb42FL6M45v6X/OY10YsoKBuWg631uY8mZL9E3eoZvRadFq+K8oQFzwhYrLl+KfifFyOf/FO357kuymZaqGdpjRFgURHPe6LnL+KJb8gpUD2UTJ/nvdHFsbUJwQg+5ldrY9oQRVQ4y3RFazGDV/c5ZNHJC2jGj0Nkd9sx+VQQ+xKhyTASCWwKIDO/XYytI/7b8t9Pg+Bjb+AawM58VHpzD7ZtiWVpWQBA5QTGhBRq1u2rncx4E8plAs7kY7odfQuYUncRPM+PiEJFHi2F1lHHGXoarkzHpVeFLwO9AdhkCjw7AjH1ClBYCcKhsG2DicEXlRV2BtEyfh6ZOhE";
@@ -141,11 +141,11 @@ public class RFFAuto extends LinearOpMode {
             // Only works on one side (blue)
             if (colorSensor.red() > colorSensor.blue()) {
                 // red
-                move.pivotRight(180);
+                //move.pivotRight(180);
                 telemetry.addData("Red", "True");
                 telemetry.update();
             } else {
-                move.pivotLeft(180);
+                //move.pivotLeft(180);
                 // blue
                 telemetry.addData("Blue", "True");
                 telemetry.update();
