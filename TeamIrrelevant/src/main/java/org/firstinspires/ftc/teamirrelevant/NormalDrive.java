@@ -103,8 +103,8 @@ public class NormalDrive implements MoveableRobot {
         if(Math.abs(y) < deadZone)y = 0;
         x2 = gamepad1.right_stick_x;
         if(Math.abs(x2) < deadZone)x2 = 0;
-        L.setPower(y * movePower + x2 * turnPower);
-        R.setPower(y * movePower - x2 * turnPower);
+        L.setPower(Math.abs(y) * y * movePower + Math.abs(x2) * x2 * turnPower);
+        R.setPower(Math.abs(y) * y * movePower - Math.abs(x2) * x2 * turnPower);
     }
 
     //Auto
